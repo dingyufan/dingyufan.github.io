@@ -43,7 +43,9 @@ categories:
     > Ubuntu Desktop 22.04.3 LTS (64-bit)
 ```
 
-<img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091548861.png" alt="截屏2023-09-09 15.48.11" style="zoom:50%;" />
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091548861.png" alt="截屏2023-09-09 15.48.11" style="zoom:50%;" /></div>
+
+
 
 烧录完成后，将SD卡插入树莓派，通电启动即可。系统安装后，即可通过 micro HMDI 连接到显示设备，并使用键盘、鼠标进行操作。首次启动会引导设置语言时区、用户名主机名等信息，不在此赘述。
 
@@ -55,7 +57,7 @@ categories:
 
 我们使用[清华镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/)，页面比较友好，可以直接在页面切换选项并产生配置内容。
 
-<img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091610222.png" style="zoom:50%;" />
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091610222.png" style="zoom:50%;" /></div>
 
 备份原 `sources.list`，将清华源信息覆写到 `sources.list`，执行 `sudo apt update ` 更新软件包信息。
 
@@ -127,16 +129,16 @@ sudo apt install openssh-server
 
 从GitHub release页面下载，`Clash.for.Windows-0.20.34-arm64-linux.tar.gz`，从它提供的各种安装包也能看出支持多平台
 
-<img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091901250.png" alt="截屏2023-09-09 18.58.02" style="zoom:55%;" />
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091901250.png" alt="截屏2023-09-09 18.58.02" style="zoom:55%;" /></div>
 
 下载后解压，运行 `cfw`，即可出现GUI界面，然后开始进行配置。
 
-![clashforwin-0](https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091910073.png)
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091910073.png" alt="clashforwin-0" style="zoom:100%;"  /></div>
 
 1. 在左侧 **General 菜单**中，**打开 Allow LAN开关，允许局域网连接**。这样不止为本机提供网络代理，也能为局域网其他设备提供代理。
 2. 在左侧 **Profiles 菜单**中，**将机场提供的订阅地址填入输入框，下载得到代理规则**。config.yaml为默认配置，sub为订阅到的规则。
 
-![202309091916624](https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091928725.png)
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309091928725.png" alt="202309091916624" style="zoom:100%;" /></div>
 
 到这为止，Clash for Windows就已经准备完毕了，随时可以使用了。
 
@@ -151,15 +153,6 @@ sudo apt install openssh-server
 ```shell
 mkdir ~/clash && cd ~/clash
 wget https://github.com/Dreamacro/clash/releases/download/v1.18.0/clash-linux-armv7-v1.18.0.gz
-
-
-
-
-sudo /usr/local/bin/clash -d /etc/clash
-
-
-cp config.yaml /etc/clash/
-cp Country.mmdb /etc/clash/
 ```
 
 解压后重命名
@@ -256,7 +249,7 @@ sudo systemctl status clash
 
 也可以设置对 本地地址(localhost)、常见的局域网网段(192.168.x.x) 不使用代理服务器。
 
-<img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309101055135.png" alt="VD7~4$~CB7W10@9NIW6HVFH" style="zoom: 70%;" />
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309101055135.png" alt="VD7~4$~CB7W10@9NIW6HVFH" style="zoom: 70%;" /></div>
 
 
 
@@ -264,7 +257,7 @@ sudo systemctl status clash
 
 进入 无线局域网设置(WLAN设置)，点击已连接的无线网络，将网络详情页面拉到底，有HTTP代理设置，填入树莓派IP地址，Clash的7890端口保存即可。
 
-<img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309101116742.jpg" alt="MTXX_PT20230910_111545372" style="zoom:15%;" />
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309101116742.jpg" alt="MTXX_PT20230910_111545372" style="zoom:15%;" /></div>
 
 
 
@@ -272,7 +265,7 @@ sudo systemctl status clash
 
 如果是带有GUI界面的操作系统，直接在界面上配置，以Ubuntu为例，在 Settings > Network > Network Proxy 中，将代理配置中填入树莓派IP地址和Clash的7890端口保存即可
 
-<img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309101147300.png" alt="截屏2023-09-10 11.47.19" style="zoom:60%;" />
+<div align=center><img src="https://dingyufan-github-io.oss-cn-hangzhou.aliyuncs.com/blog/202309101147300.png" alt="截屏2023-09-10 11.47.19" style="zoom:60%;" /></div>
 
 如果是没有界面的Linux系统，可以通过设置环境变量的方式设置
 
